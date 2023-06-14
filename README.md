@@ -25,13 +25,13 @@
 
 # 📖 Awesome Books Project <a name="about-project"></a>
 
-**Awesome Books Project**  The goal of this project is to learn how to build basic website that allows users to add/remove books from a list. This is implemented by using JavaScript objects and arrays. I also you Local Storage in the to store the array objects in the browser.  
+**Todo List With Webpack Project**The goal of this project is to learn how to build website using webpack to bundle the project files. This is implemented by using the Webpack Cli. I also you use Localstorage to store the todos in the browser.  
 
 
 
 <div align="center">
 
-  <h3><b>Awesome Books Project</b></h3>
+  <h3><b>Todo List With Webpack Project</b></h3>
 
 </div>
 
@@ -48,15 +48,15 @@
   <ul>
     <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics">HTML5</a></li>
     <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics">Javascript</a></li>
-   
   </ul>
 </details>
 
 ### Key Features <a name="key-features"></a>
 
-- **Simple HTML Page Structure**
-- **Add Book to list**
-- **Remove Book from List**
+- **Add to List**
+- **Click to Edit List**
+- **Drag Element to rearrange**
+- **Delete Completed Todos**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -133,11 +133,6 @@ You can deploy this project using: GitHub Pages,
 - Twitter: [@Ctokoli](https://twitter.com/ctokoli)
 - LinkedIn: [Cephas Tokoli](https://www.linkedin.com/in/cephas-tokoli-a25204123/)
 
-👤 **Malik Muhammad Haider Khan**
-
-- GitHub: [@malikhaiderkhan](https://github.com/malikhaiderkhan)
-- Twitter: [@malikhaiderkha](https://twitter.com/malikhaiderkha)
-- LinkedIn: [@malikhaiderkhan](https://www.linkedin.com/in/malik-haider-khan-b53188140)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

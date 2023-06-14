@@ -74,6 +74,7 @@ button.clear {
   font-family: 'Roboto', serif;
   font-size: larger;
   font-weight: 200;
+  cursor: pointer;
 }
 
 input.checkbox {
