@@ -16,7 +16,7 @@ body{
     display: flex;
     justify-content: space-between;
     list-style-type: none;
-    border-bottom: 1px solid;
+    border-bottom: 1.4px solid #dddddd;;
     padding: 15px 20px 20px 15px;
 }
 
@@ -34,7 +34,7 @@ body{
     margin-top: 40px;
     padding-top: 10px;
     padding: 10px 20px 0 10px;
-    border-bottom: 1px solid;
+    border-bottom: 1.4px solid #dddddd;;
 }
 
 .input{
@@ -42,36 +42,41 @@ body{
     align-items: center;
     justify-content: space-between;
     padding-left: 10px;
-    padding-right: 20px;
-    border-bottom: 1px solid;
+    padding-right: 2px;
+    border-bottom: 1.4px solid #dddddd;;
 }
 
 .input input {
     width: 335px;
-    height: 40px;
+    height: 45px;
     border: none;
     padding-left: 10px;
-}
-
-.input input::placeholder { 
     color: #888888;
     font-family: 'Roboto', serif;
     font-size: larger;
-    font-weight: 200;
+    font-weight: 300;
+    
+}
+
+.input input::placeholder { 
     font-style: italic;
+    font-weight: 200;
   }
 
 input:focus {
     outline: none;
 }
 
-button {
+button.clear {
     width: 500px;
     height: 30px;
     padding-bottom: 30px;
     padding-top: 15px;
     text-align: center;
     border: none;
+    font-family: Roboto;
+    font-size: larger;
+    font-weight: 200;
 }
 
 input.checkbox{
@@ -80,6 +85,14 @@ input.checkbox{
     position: relative;
     top: 3px;
     border: 33px solid black;
+}
+
+button.add {
+    background: none;
+    border: none;
+    height: 35px;
+    width: 56px;
+    cursor: pointer;
 }
 
 i.fa-solid.fa-arrow-turn-down {
