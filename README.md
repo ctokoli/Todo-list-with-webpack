@@ -47,7 +47,9 @@
   <summary>Client</summary>
   <ul>
     <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics">HTML5</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/Getting_started">CSS</a></li>
     <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics">Javascript</a></li>
+     <li><a href="https://webpack.js.org/guides/getting-started/">Webpack</a></li>
   </ul>
 </details>
 
