@@ -28,13 +28,19 @@ const todoList = [
   },
 ];
 
+const sortTodoList = todoList.sort((index1, index2) => {
+  if (index1.index > index2.index) {
+    return 1;
+  } if (index1.index < index2.index) {
+    return -1;
+  }
+  return 0;
+});
 
 const showTodo = () => {
   const listContainer = document.querySelector('.list-items');
   let placeholder = '';
-  let sortTodoList = todoList.sort(
-    (index1, index2) => (index1.index > index2.index) ? 1 : (index1.index < index2.index) ? -1 : 0);
-    sortTodoList.forEach((todo) => {
+  sortTodoList.forEach((todo) => {
     placeholder += `
         <li>
             <div>
