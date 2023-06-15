@@ -1,33 +1,8 @@
 import './styles/style.css';
+import addItem from './modules/addItem.js';
 
-const todoList = [
-  {
-    index: 2,
-    description: 'Booking my flight tomorrow',
-    completed: false,
-  },
-  {
-    index: 1,
-    description: 'Visiting my children school friday',
-    completed: false,
-  },
-  {
-    index: 3,
-    description: 'Going for groceries shopping',
-    completed: false,
-  },
-  {
-    index: 5,
-    description: 'Visiting the gym',
-    completed: false,
-  },
-  {
-    index: 4,
-    description: 'Visiting the the market',
-    completed: false,
-  },
-];
-
+let todoList = JSON.parse(localStorage.getItem('formdata')) || [];
+let count = todoList.length;
 const sortTodoList = todoList.sort((index1, index2) => {
   if (index1.index > index2.index) {
     return 1;
@@ -40,6 +15,7 @@ const sortTodoList = todoList.sort((index1, index2) => {
 const showTodo = () => {
   const listContainer = document.querySelector('.list-items');
   let placeholder = '';
+  addItem(sortTodoList, count);
   sortTodoList.forEach((todo) => {
     placeholder += `
         <li>
@@ -56,3 +32,5 @@ const showTodo = () => {
 };
 
 showTodo();
+
+
