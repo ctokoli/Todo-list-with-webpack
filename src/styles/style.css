@@ -5,6 +5,10 @@ body {
   color: #888;
 }
 
+*:focus{
+  outline: none;
+}
+
 .content {
   width: 500px;
   background-color: white;
@@ -103,4 +107,20 @@ i.fa-solid {
 
 .fas {
   color: rgb(211, 211, 211);
+}
+
+.item-list.show{
+  background-color: lightgoldenrodyellow;
+}
+
+.fa-regular.fa-trash-can {
+  display: none;
+}
+
+i.fa-regular.fa-trash-can.show {
+  display: block;
+}
+
+i.fas.fa-ellipsis-v.hide{
+  display: none;
 }
