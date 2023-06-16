@@ -11,30 +11,13 @@ const sortTodoList = todoList.sort((index1, index2) => {
   }
   return 0;
 });
+addItem(sortTodoList, count);
 
-const showTodo = () => {
-  const listContainer = document.querySelector('.list-items');
-  let placeholder = '';
-  addItem(sortTodoList, count);
-  sortTodoList.forEach((todo) => { 
-    placeholder += `
-        <li class="item-list item-input" contenteditable ="true" data-index="${todo.index}">
-            <div>
-                <input type="checkbox" contenteditable="false" class="checkbox" name="checkbox">
-                <lable>${todo.description}</lable>
-            </div>
-            <i class="fas fa-ellipsis-v"></i>
-            <i class="fa-regular fa-trash-can"></i>
-        </li>
-        `;
-  });
-
-  listContainer.innerHTML = placeholder;
-};
 
 showTodo();
 
-const updateIndex =  (index, value) =>{
+
+const updateIndex = (index, value) =>{
   for(const todo of sortTodoList){
     if(todo.index == index){
       todo.description = value;
@@ -43,22 +26,38 @@ const updateIndex =  (index, value) =>{
   }
 }
 
+const deleteItem = (deleteButton, element) => {
+  deleteButton.addEventListener('click', () => {
+    console.log(todoList);
+    let getIndex = element.getAttribute("data-index");
+    todoList = todoList.filter((todo) =>  todo.index !== parseInt(getIndex));
+    localStorage.setItem('formdata', JSON.stringify(todoList));
+    console.log(todoList);
+  });
+}
+
 
 //const trashIcon = document.querySelector('.fa-trash-can');
 
 const editItem = () =>{
   document.querySelectorAll('.item-input').forEach((element) => {
-    element.addEventListener('focus', () =>{
+    element.addEventListener('click', (e) =>{
+      e.stopPropagation();
+       // deleteButton = document.querySelector('.fa-trash-can');
+      deleteItem(e.target, element);
       //console.log(element.getAttribute("data-index"));
+      
+      //console.log(deleteButton)
+      
       let getIndex = element.getAttribute("data-index");
       let ellipsis = element.children[1];
       let trashIcon = element.lastElementChild;
       //console.log(ellipsis);
       ellipsis.classList.add('hide');
       trashIcon.classList.add('show');
+      let labelElement = element.firstElementChild.lastElementChild;
       let inputVal = element.firstElementChild.lastElementChild.innerHTML;
-     element.contenteditable ="true";
-      element.onblur = ()=> {
+      labelElement.onblur = ()=> {
         element.style.backgroundColor = '';
         trashIcon.classList.remove('show');
         ellipsis.classList.remove('hide');
@@ -81,4 +80,6 @@ const editItem = () =>{
 }
 
 editItem();
+
+
 

@@ -113,14 +113,32 @@ i.fa-solid {
   background-color: lightgoldenrodyellow;
 }
 
-.fa-regular.fa-trash-can {
+.delete {
   display: none;
 }
 
-i.fa-regular.fa-trash-can.show {
+.delete.show {
   display: block;
+  cursor: pointer;
+}
+
+button.delete{
+  background-color: red;
+  border: none;
+  position: relative;
+  left: 7px;
 }
 
 i.fas.fa-ellipsis-v.hide{
   display: none;
+}
+
+.fa-regular, .far {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.fa-regular, .far {
+  font-weight: 400;
+  z-index: 100;
 }
