@@ -6,7 +6,7 @@ import completeTodo from './modules/completed.js';
 import deleteItem from './modules/deleteItem.js';
 import deleteCompleted from './modules/deleteCompleted.js';
 
-let todoList = JSON.parse(localStorage.getItem('formdata')) || [];
+const todoList = JSON.parse(localStorage.getItem('formdata')) || [];
 const sortTodoList = todoList.sort((a, b) => a.index - b.index);
 
 showTodo(sortTodoList);
