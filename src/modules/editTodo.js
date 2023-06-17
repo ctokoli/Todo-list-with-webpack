@@ -25,3 +25,5 @@ const editItem = (sortTodoList) => {
           });
         });
 }
+
+export default editItem;

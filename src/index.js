@@ -1,7 +1,7 @@
 import './styles/style.css';
 import addItem from './modules/addItem.js';
 import showTodo from './modules/render.js';
-import editItem from './modules/editItem.js';
+import editItem from './modules/editTodo.js';
 
 let todoList = JSON.parse(localStorage.getItem('formdata')) || [];
 const sortTodoList = todoList.sort((a, b) => a.index - b.index);
