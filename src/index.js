@@ -10,7 +10,6 @@ showTodo(sortTodoList);
 addItem(todoList);
 editItem(sortTodoList);
 
-
 const deleteItem = () => {
   document.querySelectorAll('.delete').forEach((element) => {
     element.addEventListener('click', () => {
@@ -23,6 +22,3 @@ const deleteItem = () => {
 };
 
 deleteItem();
-
-
-
