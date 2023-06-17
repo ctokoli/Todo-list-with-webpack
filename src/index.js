@@ -1,8 +1,8 @@
 import './styles/style.css';
 import addItem from './modules/addItem.js';
+import showTodo from './modules/render.js';
 
 let todoList = JSON.parse(localStorage.getItem('formdata')) || [];
-let count = todoList.length;
 const sortTodoList = todoList.sort((index1, index2) => {
   if (index1.index > index2.index) {
     return 1;
@@ -11,10 +11,9 @@ const sortTodoList = todoList.sort((index1, index2) => {
   }
   return 0;
 });
-addItem(sortTodoList, count);
 
-
-showTodo();
+showTodo(sortTodoList);
+addItem(todoList);
 
 
 const updateIndex = (index, value) =>{
@@ -25,16 +24,25 @@ const updateIndex = (index, value) =>{
     }
   }
 }
-
-const deleteItem = (deleteButton, element) => {
-  deleteButton.addEventListener('click', () => {
-    console.log(todoList);
-    let getIndex = element.getAttribute("data-index");
+ 
+ 
+const deleteItem = () => {
+ document.querySelectorAll('.delete').forEach(element => {
+  element.addEventListener('click', (e) => { 
+    console.log(e.target);
+    let getIndex = element.parentElement.getAttribute("data-index");
+    console.log(getIndex);
     todoList = todoList.filter((todo) =>  todo.index !== parseInt(getIndex));
     localStorage.setItem('formdata', JSON.stringify(todoList));
-    console.log(todoList);
+    window.location.reload();
   });
+  
+ });
+
 }
+
+deleteItem();
+
 
 
 //const trashIcon = document.querySelector('.fa-trash-can');
@@ -42,39 +50,20 @@ const deleteItem = (deleteButton, element) => {
 const editItem = () =>{
   document.querySelectorAll('.item-input').forEach((element) => {
     element.addEventListener('click', (e) =>{
-      e.stopPropagation();
-       // deleteButton = document.querySelector('.fa-trash-can');
-      deleteItem(e.target, element);
-      //console.log(element.getAttribute("data-index"));
-      
-      //console.log(deleteButton)
-      
-      let getIndex = element.getAttribute("data-index");
-      let ellipsis = element.children[1];
-      let trashIcon = element.lastElementChild;
-      //console.log(ellipsis);
-      ellipsis.classList.add('hide');
-      trashIcon.classList.add('show');
-      let labelElement = element.firstElementChild.lastElementChild;
-      let inputVal = element.firstElementChild.lastElementChild.innerHTML;
-      labelElement.onblur = ()=> {
-        element.style.backgroundColor = '';
-        trashIcon.classList.remove('show');
-        ellipsis.classList.remove('hide');
-        let newValue = element.firstElementChild.lastElementChild.innerHTML;
+      let ParentE = element.parentElement.parentElement;
+      ParentE.style.backgroundColor = 'lightgoldenrodyellow';
+      element.style.outline = '';
+      let getIndex = ParentE.getAttribute("data-index");
+      let inputVal = element.innerHTML;
+      element.onblur = ()=> {
+        ParentE.style.backgroundColor = '';
+        let newValue = element.innerHTML;
         if(inputVal == newValue){
           return;
         }else{
           updateIndex(getIndex, newValue);
         }
-        //console.log(inputVal);
-        //console.log(element.firstElementChild.lastElementChild.innerHTML);
-       
       };
-
-      element.style.backgroundColor = 'lightgoldenrodyellow';
-      element.style.outline = '';
-      
     })
   });
 }
