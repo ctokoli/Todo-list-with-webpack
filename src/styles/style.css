@@ -5,6 +5,10 @@ body {
   color: #888;
 }
 
+*:focus {
+  outline: none;
+}
+
 .content {
   width: 500px;
   background-color: white;
@@ -17,7 +21,7 @@ body {
   justify-content: space-between;
   list-style-type: none;
   border-bottom: 1.4px solid #ddd;
-  padding: 15px 20px 20px 15px;
+  padding: 2px 20px 2px 15px;
 }
 
 .list ul {
@@ -81,7 +85,7 @@ input.checkbox {
   width: 17px;
   height: 17px;
   position: relative;
-  top: 3px;
+  top: 2px;
   border: 33px solid black;
 }
 
@@ -103,4 +107,46 @@ i.fa-solid {
 
 .fas {
   color: rgb(211, 211, 211);
+}
+
+.item-list.show {
+  background-color: lightgoldenrodyellow;
+}
+
+/* .delete {
+  display: none;
+} */
+
+.delete.show {
+  display: block;
+  cursor: pointer;
+}
+
+button.delete {
+  background-color: transparent;
+  border: none;
+  position: relative;
+  left: 33px;
+  cursor: pointer;
+  width: 80px;
+}
+
+i.fas.fa-ellipsis-v.hide {
+  display: none;
+}
+
+.fa-regular,
+.far {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.list-cont {
+  display: flex;
+  align-items: center;
+}
+
+.list-cont p {
+  padding: 0 18px;
+  width: 300px;
 }

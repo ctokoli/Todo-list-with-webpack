@@ -1,58 +1,27 @@
 import './styles/style.css';
+import addItem from './modules/addItem.js';
+import showTodo from './modules/render.js';
+import editItem from './modules/editTodo.js';
 
-const todoList = [
-  {
-    index: 2,
-    description: 'Booking my flight tomorrow',
-    completed: false,
-  },
-  {
-    index: 1,
-    description: 'Visiting my children school friday',
-    completed: false,
-  },
-  {
-    index: 3,
-    description: 'Going for groceries shopping',
-    completed: false,
-  },
-  {
-    index: 5,
-    description: 'Visiting the gym',
-    completed: false,
-  },
-  {
-    index: 4,
-    description: 'Visiting the the market',
-    completed: false,
-  },
-];
+let todoList = JSON.parse(localStorage.getItem('formdata')) || [];
+const sortTodoList = todoList.sort((a, b) => a.index - b.index);
 
-const sortTodoList = todoList.sort((index1, index2) => {
-  if (index1.index > index2.index) {
-    return 1;
-  } if (index1.index < index2.index) {
-    return -1;
-  }
-  return 0;
-});
+showTodo(sortTodoList);
+addItem(todoList);
+editItem(sortTodoList);
 
-const showTodo = () => {
-  const listContainer = document.querySelector('.list-items');
-  let placeholder = '';
-  sortTodoList.forEach((todo) => {
-    placeholder += `
-        <li>
-            <div>
-                <input type="checkbox" class="checkbox" name="checkbox">
-                <lable>${todo.description}</lable>
-            </div>
-            <i class="fas fa-ellipsis-v"></i>
-        </li>
-        `;
+const deleteItem = () => {
+  document.querySelectorAll('.delete').forEach((element) => {
+    element.addEventListener('click', () => {
+      const getIndex = element.parentElement.getAttribute('data-index');
+      todoList = todoList.filter((todo) => todo.index !== parseInt(getIndex, 10));
+      todoList.forEach((value, indd) => {
+        value.index = indd + 1;
+      });
+      localStorage.setItem('formdata', JSON.stringify(todoList));
+      window.location.reload();
+    });
   });
-
-  listContainer.innerHTML = placeholder;
 };
 
-showTodo();
+deleteItem();
