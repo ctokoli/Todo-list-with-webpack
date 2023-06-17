@@ -150,3 +150,8 @@ i.fas.fa-ellipsis-v.hide {
   padding: 0 18px;
   width: 300px;
 }
+
+.checked{
+  text-decoration: line-through;
+  font-style: italic;
+}
