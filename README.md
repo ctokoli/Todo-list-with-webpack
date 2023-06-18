@@ -23,7 +23,7 @@
   - [❓ FAQ ](#-faq-)
   - [📝 License ](#-license-)
 
-# 📖 Awesome Books Project <a name="about-project"></a>
+# 📖 Cephas Todo List<a name="about-project"></a>
 
 **Todo List With Webpack Project**The goal of this project is to learn how to build website using webpack to bundle the project files. This is implemented by using the Webpack Cli. I also you use Localstorage to store the todos in the browser.  
 
