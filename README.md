@@ -23,15 +23,15 @@
   - [❓ FAQ ](#-faq-)
   - [📝 License ](#-license-)
 
-# 📖 Awesome Books Project <a name="about-project"></a>
+# 📖 Todo List With Webpack Project <a name="about-project"></a>
 
-**Todo List With Webpack Project**The goal of this project is to learn how to build website using webpack to bundle the project files. This is implemented by using the Webpack Cli. I also you use Localstorage to store the todos in the browser.  
+**Todo List With Webpack** The goal of this project is to learn how to build website using webpack to bundle the project files. This is implemented by using the Webpack Cli. I also used Localstorage to store the todos lists in the browser.  
 
 
 
 <div align="center">
 
-  <h3><b>Todo List With Webpack Project</b></h3>
+  <h3><b>Todo List With Webpack</b></h3>
 
 </div>
 
