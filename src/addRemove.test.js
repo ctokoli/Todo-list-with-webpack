@@ -1,3 +1,8 @@
+import jsdom from 'jsdom';
+
+// Import the function to be tested
+import addItem from './modules/addItem.js';
+import deleteItem from './modules/delete-me.js';
 
 const localStorageMock = (function () {
   let store = {};
@@ -23,19 +28,13 @@ const localStorageMock = (function () {
       return store;
     },
   };
-})();
-  
-  if (typeof window !== 'undefined' && window.localStorage) {
-    Object.defineProperty(window, 'localStorage', { value: localStorageMock });
-  }
+}());
 
-
-import jsdom from 'jsdom';
+if (typeof window !== 'undefined' && window.localStorage) {
+  Object.defineProperty(window, 'localStorage', { value: localStorageMock });
+}
 const { JSDOM } = jsdom;
-global.document = new JSDOM().window.document; 
-
-// Import the necessary dependencies and functions
-import { screen, fireEvent } from '@testing-library/jest-dom';
+global.document = new JSDOM().window.document;
 
 // Mock the necessary DOM elements and events
 document.body.innerHTML = `
@@ -49,10 +48,6 @@ document.body.innerHTML = `
   </ul>
 `;
 
-// Import the function to be tested
-import addItem from './modules/addItem.js';
-import deleteItem from './modules/delete-me.js';
-
 describe('addItem', () => {
   beforeEach(() => {
     // Clear the local storage before each test
@@ -63,23 +58,22 @@ describe('addItem', () => {
     // Mock the todoData array
     const todoData = [];
 
-     // Call the addItem function
-     addItem(todoData);
- 
+    // Call the addItem function
+    addItem(todoData);
+
     // Mock the necessary DOM elements
-    const button = document.querySelector('.add');
     const textInput = document.querySelector('.text');
 
     // Set the input value
     textInput.value = 'New Todo Item';
-    
-        const todoItem = {
-            index: 1,
-            description: textInput.value,
-            completed: false,
-          };
-          todoData.push(todoItem);
-          localStorageMock.setItem('formdata', JSON.stringify(todoData));
+
+    const todoItem = {
+      index: 1,
+      description: textInput.value,
+      completed: false,
+    };
+    todoData.push(todoItem);
+    localStorageMock.setItem('formdata', JSON.stringify(todoData));
 
     // Check if the todoData array has been updated correctly
     expect(todoData.length).toBe(1);
@@ -96,29 +90,23 @@ describe('addItem', () => {
 
   test('deletes an item from the todoList and removes one <li> element', () => {
     const todoData = [{ index: 1, description: 'New Todo Item 1', completed: false }, { index: 2, description: 'New Todo Item 2', completed: false }];
-    debugger
     const upDateData = deleteItem(todoData, 1);
     // Assertions
     expect(document.querySelectorAll('.delete')).toHaveLength(2);
     expect(upDateData.length).toEqual(1);
 
-    //removes one <li> element from the dom
-    
-    let liElements = document.querySelectorAll('.delete');
-    let list = document.querySelector('.todo-list');
-    let index = 1;
-    if (liElements.length != 0) {
-        const itemToRemove = liElements[index];
-        list.removeChild(itemToRemove);
-      
-      }
-    
-    //Check if the <li> element with data-index="1" is removed
+    // removes one <li> element from the dom
+
+    const liElements = document.querySelectorAll('.delete');
+    const list = document.querySelector('.todo-list');
+    const index = 1;
+    if (liElements.length !== 0) {
+      const itemToRemove = liElements[index];
+      list.removeChild(itemToRemove);
+    }
+
+    // Check if the <li> element with data-index="1" is removed
     expect(document.querySelectorAll('.todo-list li')).toHaveLength(1);
     // expect(document.querySelector('#todo-list li[data-index="1"]')).toBeNull();
   });
-
-  
 });
-
-

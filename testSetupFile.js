@@ -22,8 +22,8 @@ const localStorageMock = (function () {
       return store;
     },
   };
-})();
-  
-  if (typeof window !== 'undefined' && window.localStorage) {
-    Object.defineProperty(window, 'localStorage', { value: localStorageMock });
-  }
+}());
+
+if (typeof window !== 'undefined' && window.localStorage) {
+  Object.defineProperty(window, 'localStorage', { value: localStorageMock });
+}
