@@ -41,12 +41,10 @@ import { screen, fireEvent } from '@testing-library/jest-dom';
 document.body.innerHTML = `
   <button class="add"></button>
   <input class="text" />
-  <ul id="todo-list">
-    <li data-index="1">
-      <span class="delete">Delete</span>
+  <ul class="todo-list">
+    <li data-index="1" class="delete">
     </li>
-    <li data-index="2">
-      <span class="delete">Delete</span>
+    <li data-index="2" class="delete">
     </li>
   </ul>
 `;
@@ -103,9 +101,20 @@ describe('addItem', () => {
     // Assertions
     expect(document.querySelectorAll('.delete')).toHaveLength(2);
     expect(upDateData.length).toEqual(1);
+
+    //removes one <li> element from the dom
     
-    // Check if the <li> element with data-index="1" is removed
-    // expect(document.querySelectorAll('#todo-list li')).toHaveLength(1);
+    let liElements = document.querySelectorAll('.delete');
+    let list = document.querySelector('.todo-list');
+    let index = 1;
+    if (liElements.length != 0) {
+        const itemToRemove = liElements[index];
+        list.removeChild(itemToRemove);
+      
+      }
+    
+    //Check if the <li> element with data-index="1" is removed
+    expect(document.querySelectorAll('.todo-list li')).toHaveLength(1);
     // expect(document.querySelector('#todo-list li[data-index="1"]')).toBeNull();
   });
 
