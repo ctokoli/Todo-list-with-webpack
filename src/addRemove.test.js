@@ -1,4 +1,4 @@
-import jsdom from 'jsdom';
+import jsDom from 'jsdom';
 
 // Import the function to be tested
 import addItem from './modules/addItem.js';
@@ -33,7 +33,7 @@ const localStorageMock = (function () {
 if (typeof window !== 'undefined' && window.localStorage) {
   Object.defineProperty(window, 'localStorage', { value: localStorageMock });
 }
-const { JSDOM } = jsdom;
+const { JSDOM } = jsDom;
 global.document = new JSDOM().window.document;
 
 // Mock the necessary DOM elements and events
