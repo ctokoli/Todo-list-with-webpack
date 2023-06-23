@@ -16,7 +16,7 @@ describe('editing the task description', () => {
     localStorage.setItem.mockClear();
   });
 
-  it('Should update the description of the given index and update localStirage ', () => {
+  it('Should update the description of the given index and update localStorage ', () => {
     const todoData = [
       { index: 1, description: 'New Todo Item 1', completed: false },
       { index: 2, description: 'New Todo Item 2', completed: false },
@@ -39,7 +39,7 @@ describe('editing the task description', () => {
     );
   });
 
-  it('Should update completed of the given index and update localStirage ', () => {
+  it('Should update completed of the given index and update localStorage ', () => {
     const todoData = [
       { index: 1, description: 'New Todo Item 1', completed: false },
       { index: 2, description: 'New Todo Item 2', completed: false },
@@ -61,7 +61,7 @@ describe('editing the task description', () => {
       JSON.stringify(updatedTodo),
     );
   });
-  it('Should delete completed task if completed is true and update localStirage ', () => {
+  it('Should delete completed task if completed is true and update localStorage ', () => {
     const todoData = [
       { index: 1, description: 'New Todo Item 1', completed: false },
       { index: 2, description: 'New Todo Item 2', completed: true },
