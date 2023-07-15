@@ -1,7 +1,7 @@
 const showTodo = (sortTodoList) => {
   const listContainer = document.querySelector('.list-items');
   let placeholder = '';
-  listContainer.innerHTML = '';
+  listContainer.innerHTML = 'Loading';
   sortTodoList.forEach((todo) => {
     placeholder += `
           <li class="item-list"  data-index="${todo.index}" data-bool="${todo.completed}">
