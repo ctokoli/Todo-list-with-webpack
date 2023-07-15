@@ -162,11 +162,9 @@ i.fas.fa-ellipsis-v.hide {
 @media only screen and (max-width: 600px) {
   .content {
     width: 360px;
-}
+  }
 
-button.clear{
-  width: 360px;
+  button.clear {
+    width: 360px;
+  }
 }
-
-}
-
