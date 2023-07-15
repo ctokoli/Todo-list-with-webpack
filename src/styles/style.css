@@ -77,8 +77,9 @@ button.clear {
   border: none;
   font-family: 'Roboto', serif;
   font-size: larger;
-  font-weight: 200;
+  font-weight: 400;
   cursor: pointer;
+  color: #8c39ff;
 }
 
 input.checkbox {
@@ -113,9 +114,10 @@ i.fa-solid {
   background-color: lightgoldenrodyellow;
 }
 
-/* .delete {
-  display: none;
-} */
+.head p {
+  color: #8c39ff;
+  font-size: 18px;
+}
 
 .delete.show {
   display: block;
@@ -149,9 +151,20 @@ i.fas.fa-ellipsis-v.hide {
 .list-cont p {
   padding: 0 18px;
   width: 300px;
+  color: #8c39ff;
 }
 
 .checked {
   text-decoration: line-through;
   font-style: italic;
+}
+
+@media only screen and (max-width: 600px) {
+  .content {
+    width: 360px;
+  }
+
+  button.clear {
+    width: 360px;
+  }
 }
