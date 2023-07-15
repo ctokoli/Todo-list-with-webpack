@@ -155,3 +155,15 @@ i.fas.fa-ellipsis-v.hide {
   text-decoration: line-through;
   font-style: italic;
 }
+
+@media only screen and (max-width: 600px) {
+  .content {
+    width: 360px;
+}
+
+button.clear{
+  width: 360px;
+}
+
+}
+
